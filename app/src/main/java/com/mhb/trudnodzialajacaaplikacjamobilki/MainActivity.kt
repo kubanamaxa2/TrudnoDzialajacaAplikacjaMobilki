@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
 
         var takieO = 0
-        var wartoscidobre = IntArray(9)
+        var wartoscidobre = mutableListOf<Int>(0,0,0,0,0,0,0,0,0)
         var wartosci: Array<Int> = arrayOf(0,0,0,0,0,0,0,0,0)
         var switche: Array<Switch> = arrayOf(
         binding.s1,
@@ -53,6 +53,11 @@ class MainActivity : AppCompatActivity() {
                 }
 
 
+            }
+            for(i in 0..8){
+                if(wartoscidobre[i] == 0){
+                    //wartoscidobre.removeAt(i)
+                }
             }
             t1.text=""
             for(i in 0..8){

@@ -15,6 +15,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        var takieO = 0
+        var wartosci = mutableListOf<Int>();
+        var wartoscidobre = mutableListOf<Int>();
         var switche: Array<Switch> = arrayOf(
         binding.s1,
         binding.s2,
@@ -30,9 +34,22 @@ class MainActivity : AppCompatActivity() {
         var t1 = binding.textView;
 
         b1.setOnClickListener{
-            for(i in 0 ..9){
-                Random.nextInt(1,9)
+            for(i in 0 ..8){
+              var ran = Random.nextInt(1,9);
+                switche[i].text = ran.toString()
+                wartosci[i] = ran
+            }
+        }
+        b2.setOnClickListener{
+            for(i in 0..8){
+                if(switche[i].isChecked == true){
+                    wartoscidobre[i] = wartosci[i];
+                    takieO += 1;
+                }
 
+            }
+            for(i in 0..takieO){
+                t1.text = wartoscidobre[i].toString() + " "
             }
         }
     }

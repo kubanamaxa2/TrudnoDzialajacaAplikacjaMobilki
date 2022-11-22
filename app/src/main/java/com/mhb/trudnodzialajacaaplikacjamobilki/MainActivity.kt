@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
         var takieO = 0
         var wartoscidobre = IntArray(9)
-        var wartosci: Array<Int> = arrayOf(1,1,1,1,1,1,1,1,1)
+        var wartosci: Array<Int> = arrayOf(0,0,0,0,0,0,0,0,0)
         var switche: Array<Switch> = arrayOf(
         binding.s1,
         binding.s2,
@@ -33,26 +33,30 @@ class MainActivity : AppCompatActivity() {
         var b2 = binding.button2 ;
         var t1 = binding.textView;
 
-
         b1.setOnClickListener{
             for(i in 0 ..8){
-              var ran = Random.nextInt(1,9);
-                switche[i].text = ran.toString();
+             var ran = Random.nextInt(1,9);
                 wartosci[i] = ran
+                switche[i].text = ran.toString();
             }
             t1.text = "TextWidze"
-            for(i in 0..8){
+            for(i in 0..8) {
                 wartoscidobre[i] = 0
             }
-
         }
         b2.setOnClickListener{
+            takieO = 0
             for(i in 0..8) {
                 if (switche[i].isChecked == true) {
                     takieO += 1;
-                    wartoscidobre[i] = wartosci[i];
+                    wartoscidobre[takieO-1] = wartosci[i];
                 }
-            }/*
+
+
+            }
+            t1.text=""
+            for(i in 0..8){
+                t1.text = t1.text.toString() + wartoscidobre[i].toString() + ", "}/*
             for(i in 0..takieO-1){
                 t1.text = t1.text.toString() + wartoscidobre[i].toString() + ", "
             }*/

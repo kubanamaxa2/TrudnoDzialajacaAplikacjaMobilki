@@ -2,7 +2,9 @@ package com.mhb.trudnodzialajacaaplikacjamobilki
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Switch
 import com.mhb.trudnodzialajacaaplikacjamobilki.databinding.ActivityMainBinding
+import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
 
@@ -13,15 +15,25 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+        var switche: Array<Switch> = arrayOf(
+        binding.s1,
+        binding.s2,
+        binding.s3,
+        binding.s4,
+        binding.s5,
+        binding.s6,
+        binding.s7,
+        binding.s8,
+        binding.s9);
+        var b1 = binding.button;
+        var b2 = binding.button2 ;
+        var t1 = binding.textView;
 
-        var s1 = binding.s1
-        var s2 = binding.s2
-        var s3 = binding.s3
-        var s4 = binding.s4
-        var s5 = binding.s5
-        var s6 = binding.s6
-        var s7 = binding.s7
-        var s8 = binding.s8
-        var s9 = binding.s9
+        b1.setOnClickListener{
+            for(i in 0 ..9){
+                Random.nextInt(1,9)
+
+            }
+        }
     }
 }
